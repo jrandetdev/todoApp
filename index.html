@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Calistoga&family=IBM+Plex+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="todo.css" />
+    <title>Get Things Done</title>
+  </head>
+  <body>
+    <!-- header with catrgory, date, and time -->
+    <div id="app">
+      <header>
+        <h1>Get Things Done!</h1>
+        <div class="date-time-container">
+          <div class="surface title">
+            <p>All To Do</p>
+          </div>
+          <div class="surface date">
+            <p>Monday, 13 October 2026</p>
+          </div>
+          <div class="surface">
+            <p>07:31 PM</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- main section, containing the form, and the todo and navbar -->
+      <main>
+        <div id="todoSection">
+          <section>
+            <h2 class="visually-hidden">Add a todo</h2>
+            <form id="todo">
+              <label for="newTodo" class="visually-hidden">New todo</label>
+              <input
+                class="surface"
+                id="newTodo"
+                type="text"
+                name="newTodo"
+                required
+                minlength="4"
+                maxlength="255"
+                placeholder="Type your next task here"
+              />
+              <button class="surface button" name="add">Add</button>
+            </form>
+          </section>
+          <section>
+            <h2 class="visually-hidden">Your todos</h2>
+            <ul id="todoList">
+              <li class="surface todo">
+                <button
+                  class="surface"
+                  type="button"
+                  formnovalidate="formnovalidate"
+                  value="Submit without validation"
+                ></button>
+                <time datetime="YYYY-MM-DD"></time>
+                <time datetime="HH:MM"></time>
+                Have fun
+              </li>
+              <li class="surface todo">
+                <button
+                  class="surface"
+                  type="button"
+                  formnovalidate="formnovalidate"
+                  value="Submit without validation"
+                ></button>
+                <time datetime="YYYY-MM-DD"></time>
+                <time datetime="HH:MM"></time>
+                Make dinner
+              </li>
+            </ul>
+          </section>
+        </div>
+        <nav>Hello</nav>
+        <!-- part with the todo -->
+      </main>
+    </div>
+  </body>
+</html>
