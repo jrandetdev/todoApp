@@ -117,9 +117,11 @@ main {
 }
 
 .tick-button {
-  width: 15px;
-  height: 15px;
-  padding: 15px;
+  flex: none;
+  width: 25px;
+  aspect-ratio: 1;
+  padding: 0px;
+  border-radius: 10px;
 }
 
 .surface.todo {
