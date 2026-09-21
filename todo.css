@@ -3,13 +3,13 @@
   --top-margin: 40px;
 
   /* palette */
-  --color-bg: #4361ee; /* deep teal-black base */
-  --color-glass: #f4f1ea24; /* frosted card, warm-tinted */
+  --color-bg: #4361ee;
+  --color-glass: #f4f1ea24;
   --color-glass-border: rgba(244, 241, 234, 0.2);
   --color-text: #ffffff;
   --color-text-muted: rgba(244, 241, 234, 0.65);
 
-  --color-button: #bbbfbf; /* amber accent */
+  --color-button: #56d45e;
   --color-button-glass: #4cc9f0;
   --color-button-text: #ffffff;
 }
@@ -28,8 +28,14 @@ h1 {
   color: var(--color-text);
 }
 
+input {
+  background-color: var(--color-button-text);
+  color: var(--color-bg);
+}
+
 input::placeholder {
-  color: var(--color-text);
+  background-color: var(--color-button-text);
+  color: var(--color-bg);
   opacity: 0.7;
   font-size: medium;
 }
@@ -54,7 +60,7 @@ header {
   /* layout */
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--app-gap);
 }
 
 main {
@@ -73,7 +79,7 @@ main {
   gap: var(--app-gap);
 }
 
-#todo {
+#todoForm {
   /* layout */
   display: flex;
   flex-direction: row;
@@ -100,12 +106,35 @@ main {
   border: 1px solid var(--color-glass-border);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
 
+.glass {
   background-color: var(--color-glass);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
 
   color: var(--color-text);
+}
+
+.tick-button {
+  width: 15px;
+  height: 15px;
+  padding: 15px;
+}
+
+.surface.todo {
+  display: flex;
+  flex-direction: row;
+  gap: var(--app-gap);
+}
+
+.surface.todo > span {
+  flex-grow: 3;
+  text-wrap: pretty;
+}
+
+.surface.todo > time {
+  flex: 0 0 6ch;
 }
 
 button.surface {
@@ -120,7 +149,7 @@ button.surface:hover {
   opacity: 1;
 }
 
-.date-time-container {
+.header-info {
   /* layout */
   display: flex;
   flex-direction: row;
@@ -133,18 +162,14 @@ button.surface:hover {
   text-align: center;
 }
 
-.surface.title {
+.surface.category {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex: 1 1 150px;
-}
-
-.surface.date {
   flex-grow: 1;
 }
 
-.date-time-container .surface:not(.title) {
+.header-info .surface:not(.title) {
   justify-content: center;
   text-align: center;
 }
@@ -157,4 +182,43 @@ button.surface:hover {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.done-toggle[aria-pressed="true"] {
+  background-color: var(--color-button);
+  border-color: var(--color-button);
+}
+
+.done-toggle[aria-pressed="true"]::after {
+  content: "✓";
+  color: var(--color-button-text);
+}
+
+.todo.done {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+@media (width <= 800px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #app {
+    align-items: center;
+    margin: 0%;
+    padding: 10px;
+  }
+
+  #newTodo {
+    flex-grow: 4;
+  }
+
+  #todoSection {
+    flex-direction: column;
+  }
+
+  .header-info {
+    flex-direction: column;
+  }
 }

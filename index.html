@@ -22,14 +22,14 @@
     <div id="app">
       <header>
         <h1>Get Things Done!</h1>
-        <div class="date-time-container">
-          <div class="surface title">
+        <div class="header-info">
+          <div class="surface glass category">
             <p>All To Do</p>
           </div>
-          <div class="surface date">
+          <div class="surface glass date">
             <p>Monday, 13 October 2026</p>
           </div>
-          <div class="surface">
+          <div class="surface glass">
             <p>07:31 PM</p>
           </div>
         </div>
@@ -40,17 +40,17 @@
         <div id="todoSection">
           <section>
             <h2 class="visually-hidden">Add a todo</h2>
-            <form id="todo">
+            <form id="todoForm">
               <label for="newTodo" class="visually-hidden">New todo</label>
               <input
                 class="surface"
                 id="newTodo"
-                type="text"
                 name="newTodo"
+                type="text"
                 required
                 minlength="4"
                 maxlength="255"
-                placeholder="Type your next task here"
+                placeholder="Type next task here"
               />
               <button class="surface button" name="add">Add</button>
             </form>
@@ -58,33 +58,35 @@
           <section>
             <h2 class="visually-hidden">Your todos</h2>
             <ul id="todoList">
-              <li class="surface todo">
+              <li class="surface todo glass">
                 <button
-                  class="surface"
+                  class="surface tick-button"
                   type="button"
-                  formnovalidate="formnovalidate"
-                  value="Submit without validation"
+                  aria-pressed="false"
+                  aria-label="Mark todo as done"
                 ></button>
-                <time datetime="YYYY-MM-DD"></time>
-                <time datetime="HH:MM"></time>
-                Have fun
+                <span i>Buy milk</span>
+                <time datetime="2026-09-21">Sep 21</time>
+                <time datetime="14:30">14:30</time>
               </li>
-              <li class="surface todo">
+              <li class="surface glass todo">
                 <button
-                  class="surface"
+                  class="surface tick-button"
                   type="button"
-                  formnovalidate="formnovalidate"
-                  value="Submit without validation"
+                  aria-pressed="false"
+                  aria-label="Mark todo as done"
                 ></button>
-                <time datetime="YYYY-MM-DD"></time>
-                <time datetime="HH:MM"></time>
-                Make dinner
+                <span i
+                  >This is a test for some super long text that should wrap.
+                  hahahaha just not long enough</span
+                >
+                <time datetime="2026-09-21">Sep 21</time>
+                <time datetime="14:30">14:30</time>
               </li>
             </ul>
           </section>
         </div>
         <nav>Hello</nav>
-        <!-- part with the todo -->
       </main>
     </div>
   </body>
