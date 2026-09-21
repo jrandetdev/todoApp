@@ -66,7 +66,7 @@ header {
 main {
   /* layout */
   display: grid;
-  grid-template-columns: 2.87fr 1.5fr;
+  grid-template-columns: 2.5fr 1.5fr;
   gap: var(--app-gap);
 
   /* box */
