@@ -90,7 +90,7 @@ Working: the page layout, the form with HTML validation, the live date and clock
 
 Next: the `Todo` type and array, the submit handler, rendering `<li>`s from the array, toggling done, and saving to `localStorage`.
 
-## Docs I keep going back to
+## Documentation
 
 - [MDN — Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 - [MDN — Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
