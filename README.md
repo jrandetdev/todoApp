@@ -13,6 +13,8 @@ Then open the URL Vite prints (usually `http://localhost:5173`). `npm run build`
 
 ## What I've learned so far
 
+
+
 ### HTML
 
 **Structure comes from meaning, not from looks.** The page is `<header>` / `<main>` / `<nav>`, and each part of `<main>` is a `<section>` with its own `<h2>`. The headings are visually hidden but still exist, so the document outline (and a screen reader's list of headings) makes sense even though I never wanted big "Add a todo" text on screen. A `<section>` without a heading would just be a `<div>`.
@@ -24,13 +26,15 @@ Then open the URL Vite prints (usually `http://localhost:5173`). `npm run build`
 - `<label for="newTodo">` + `<input id="newTodo">` ties them together: clicking the label focuses the input, and screen readers announce it.
 - `required`, `minlength`, `maxlength` validate without any JS — the browser blocks the submit and shows its own message.
 - `name` is what the field is *called in form data*. That's a different question from `id` (*which* element) and `class` (what *kind* of element).
-- A `<button>` inside a `<form>` submits by default. The "done" tick is `type="button"` so it doesn't. (Earlier I had `formnovalidate` on it, which only means something on a submit button.)
+- A `<button>` inside a `<form>` submits by default. The "done" tick is `type="button"` so it doesn't.
 
 **An empty button needs a name.** The tick button has no text, so `aria-label="Mark todo as done"` gives it one, and `aria-pressed` tells assistive tech it's a toggle and which state it's in. CSS can then style the pressed state with `[aria-pressed="true"]`.
 
 **`<time datetime="2026-09-21">`** carries a machine-readable date alongside whatever text is shown.
 
 **Head housekeeping:** `lang`, `charset`, the viewport meta tag (without it phones render at desktop width and zoom out), `preconnect` for Google Fonts — and stylesheet *order* matters: the reset loads before my styles so mine win on ties.
+
+
 
 ### CSS
 
@@ -53,6 +57,8 @@ Then open the URL Vite prints (usually `http://localhost:5173`). `npm run build`
 **Selectors I now use on purpose:** compound `.surface.todo`, child `.surface.todo > span`, attribute `[aria-pressed="true"]`, pseudo-elements `::placeholder` and `::after` (with `content`), `:hover`, `:not()`.
 
 **Text handling:** `text-wrap: pretty` / `balance`, `overflow-wrap: break-word`, and the ellipsis trio (`white-space: nowrap; overflow: hidden; text-overflow: ellipsis`).
+
+
 
 ### JavaScript / TypeScript
 
@@ -84,7 +90,7 @@ Working: the page layout, the form with HTML validation, the live date and clock
 
 Next: the `Todo` type and array, the submit handler, rendering `<li>`s from the array, toggling done, and saving to `localStorage`.
 
-## Docs I keep going back to
+## Documentation
 
 - [MDN — Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 - [MDN — Basic concepts of flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
