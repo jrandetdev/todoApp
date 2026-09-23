@@ -1,17 +1,21 @@
 import "../reset.css";
 import "../todo.css";
 import { setDate, startClock } from "./dateTime.ts";
-import { init } from "./todo.ts";
-import dayjs from "dayjs";
+import { myGetElementById } from "./dom.ts";
+import { addTodo } from "./todoStore.ts";
 
-const myBirthday = dayjs("1998-12-01");
-const now = dayjs();
-console.log(now.diff(myBirthday, "hour"));
+function handleSubmit(event: SubmitEvent) {
+  event.preventDefault();
+  const input = myGetElementById("newTodo", HTMLInputElement);
+  addTodo(input);
+}
 
 function setup() {
   setDate();
   startClock();
+  const form = myGetElementById("todoForm", HTMLFormElement);
+  form.addEventListener("submit", handleSubmit);
 }
 
+//intitialisation functions
 setup();
-init();
