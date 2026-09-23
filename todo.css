@@ -13,33 +13,6 @@
   --color-button-text: #ffffff;
 }
 
-body {
-  background-color: var(--color-bg);
-  min-height: 100vh;
-  overflow-x: auto;
-}
-
-h1 {
-  font-family: "Raleway", serif;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  font-size: clamp(2rem, 8vw, 7.5rem);
-  text-align: center;
-  color: var(--color-text);
-}
-
-input {
-  background-color: var(--color-button-text);
-  color: var(--color-bg);
-}
-
-/* the placeholder adds (0-0-2) to input so the placeholder wins in terms of specificity */
-input::placeholder {
-  background-color: var(--color-button-text);
-  color: var(--color-bg);
-  opacity: 0.7;
-  font-size: medium;
-}
-
 #app {
   /* layout */
   display: flex;
@@ -56,6 +29,20 @@ input::placeholder {
   color: var(--color-text);
 }
 
+body {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: auto;
+}
+
+h1 {
+  font-family: "Raleway", serif;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: clamp(2rem, 8vw, 7.5rem);
+  text-align: center;
+  color: var(--color-text);
+}
+
 header {
   /* layout */
   display: flex;
@@ -63,10 +50,36 @@ header {
   gap: var(--app-gap);
 }
 
+.header-info {
+  /* layout */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--app-gap);
+
+  /* typography */
+  text-align: center;
+}
+
+input {
+  background-color: var(--color-button-text);
+  color: var(--color-bg);
+}
+
+/* the placeholder adds (0-0-2) to input so the placeholder wins in terms of specificity */
+input::placeholder {
+  background-color: var(--color-button-text);
+  color: var(--color-bg);
+  opacity: 0.7;
+  font-size: medium;
+}
+
 main {
   /* layout */
   display: grid;
-  grid-template-columns: 2.5fr 1.5fr;
+  grid-template-columns: 2.85fr 1.15fr;
   gap: var(--app-gap);
 
   /* box */
@@ -151,29 +164,18 @@ button.surface:hover {
   opacity: 1;
 }
 
-.header-info {
-  /* layout */
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: var(--app-gap);
-
-  /* typography */
-  text-align: center;
-}
-
 .surface.category {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex-grow: 1;
 }
 
 .header-info .surface:not(.title) {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
+  flex-grow: 1;
 }
 
 .visually-hidden {
@@ -199,6 +201,12 @@ button.surface:hover {
 .todo.done {
   text-decoration: line-through;
   color: var(--color-text-muted);
+}
+
+.icon {
+  width: 1.25em; /* scales with the button's font-size */
+  height: 1.25em;
+  display: block; /* removes a small gap below inline SVGs */
 }
 
 @media (width <= 800px) {
