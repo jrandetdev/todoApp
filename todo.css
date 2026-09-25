@@ -164,6 +164,11 @@ button.surface:hover {
   opacity: 1;
 }
 
+.deleteButton {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .surface.category {
   white-space: nowrap;
   overflow: hidden;

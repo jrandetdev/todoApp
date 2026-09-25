@@ -1,7 +1,8 @@
 import { type Todo } from "./types.ts";
-import { render } from "./render.ts";
+import { appendTodo } from "./render.ts";
+import { save } from "./storage.ts";
 
-const todoArray: Todo[] = [];
+export const todoArray: Todo[] = [];
 
 export function addTodo(elementToAdd: HTMLInputElement) {
   const newTodo: Todo = {
@@ -11,7 +12,22 @@ export function addTodo(elementToAdd: HTMLInputElement) {
   };
 
   todoArray.push(newTodo);
-  render(todoArray);
+  appendTodo(newTodo);
+  save(todoArray);
 }
 
-// function removeTodo(elementToRemove: )
+export function markTodoAsDone(elementToTick: HTMLLIElement) {
+  const index = todoArray.findIndex((todo) => todo.id === elementToTick.id);
+  if (todoArray[index]) {
+    todoArray[index].done == false
+      ? (todoArray[index].done = true)
+      : (todoArray[index].done = false);
+  }
+}
+
+export function removeTodo(elementToRemove: HTMLLIElement) {
+  const index = todoArray.findIndex((todo) => todo.id === elementToRemove.id);
+  todoArray.splice(index, 1);
+  save(todoArray);
+  elementToRemove.remove();
+}

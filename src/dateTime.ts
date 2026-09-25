@@ -21,5 +21,5 @@ function updateClock(): void {
 
 export function startClock(): void {
   updateClock();
-  setInterval(updateClock, 1000);
+  setInterval(updateClock, 1000); // asynchronous operation used to execute code after a certain delay 
 }
